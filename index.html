@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Désobfuscateur JavaScript - Hi Sy Slot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>JS Désobfuscateur</h1>
+            </div>
+            <div class="creator">
+                <span>Créé par</span>
+                <h2>Hi Sy Slot</h2>
+            </div>
+        </header>
+
+        <main>
+            <div class="controls">
+                <div class="file-controls">
+                    <button id="loadFileBtn" class="btn"><i class="fas fa-file-import"></i> Charger un fichier</button>
+                    <button id="saveFileBtn" class="btn"><i class="fas fa-file-export"></i> Sauvegarder</button>
+                    <input type="file" id="fileInput" accept=".js" style="display: none;">
+                </div>
+                <div class="action-controls">
+                    <button id="deobfuscateBtn" class="btn primary"><i class="fas fa-magic"></i> Désobfusquer</button>
+                    <button id="clearBtn" class="btn"><i class="fas fa-trash"></i> Effacer</button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-panel">
+                    <div class="panel-header">
+                        <h3>Code Obfusqué</h3>
+                    </div>
+                    <div class="editor">
+                        <textarea id="inputCode" placeholder="Collez votre code JavaScript obfusqué ici..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="editor-panel">
+                    <div class="panel-header">
+                        <h3>Code Désobfusqué</h3>
+                    </div>
+                    <div class="editor">
+                        <textarea id="outputCode" placeholder="Le résultat apparaîtra ici..." readonly></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="detection-info">
+                    <h3>Types d'obfuscation détectés</h3>
+                    <ul id="detectionList">
+                        <li class="no-detection">Aucune détection pour le moment</li>
+                    </ul>
+                </div>
+                <div class="stats-info">
+                    <h3>Statistiques</h3>
+                    <div class="stat-item">
+                        <span>Taille originale:</span>
+                        <span id="originalSize">0 octets</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Taille désobfusquée:</span>
+                        <span id="deobfuscatedSize">0 octets</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Temps de traitement:</span>
+                        <span id="processingTime">0 ms</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="options">
+                <label>
+                    <input type="checkbox" id="beautifyOption" checked>
+                    Embellir le code
+                </label>
+                <label>
+                    <input type="checkbox" id="renameVarsOption">
+                    Renommer les variables
+                </label>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Hi Sy Slot - Tous droits réservés
+            </div>
+        </footer>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>À propos du Désobfuscateur</h2>
+            <p>Cet outil permet de désobfusquer du code JavaScript en utilisant diverses techniques d'analyse et de transformation.</p>
+            <p>Il peut détecter et traiter plusieurs types d'obfuscation :</p>
+            <ul>
+                <li>Encodage hexadécimal (\x41)</li>
+                <li>Encodage Unicode (\u0041)</li>
+                <li>Chaînes encodées en Base64</li>
+                <li>Utilisation d'eval() ou new Function()</li>
+                <li>Renommage de variables</li>
+                <li>Compression de code</li>
+            </ul>
+            <p>Créé par <strong>Hi Sy Slot</strong></p>
+        </div>
+    </div>
+
+    <script src="deobfuscator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
